@@ -18,7 +18,7 @@ The objective of this project is to develop an intelligent application powered b
 4. **Output:** The system provides the answer in a structured format that is easy to understand and directly relevant to the query.
 
 ## Curl Commands for powershell
-      curl.exe -X POST "https://tds-project-2-six.vercel.app/api/" -H "Content-Type: 	multipart/form-data" -F "question=Download and unzip file abcd.zip which 	has a     single extract.csv file inside. What is the value in the ""answer"" column 	of the CSV file?" -F file=@first.txt
+      curl.exe -X POST "https://tds-project-2-six.vercel.app/api/" -H "Content-Type:multipart/form-data" -F "question=Download and unzip file abcd.zip which has a single extract.csv file inside. What is the value in the ""answer"" column 	of the CSV file?" -F file=@first.txt
 
 ## Curl Command for GitBash
       curl -X POST "https://tds-project-2-six.vercel.app/api/" \
