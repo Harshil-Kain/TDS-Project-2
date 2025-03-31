@@ -17,11 +17,24 @@ The objective of this project is to develop an intelligent application powered b
 3. **Answer Generation:** The LLM returns a response based on the question, which is then displayed to the user.
 4. **Output:** The system provides the answer in a structured format that is easy to understand and directly relevant to the query.
 
-## Curl Commands for powershell
-      curl.exe -X POST "https://tds-project-2-six.vercel.app/api/" -H "Content-Type:multipart/form-data" -F "question=Download and unzip file abcd.zip which has a single extract.csv file inside. What is the value in the ""answer"" column 	of the CSV file?" -F file=@first.txt
+## cURL Commands to Send Requests
 
-## Curl Command for GitBash
-      curl -X POST "https://tds-project-2-six.vercel.app/api/" \
-  	   -H "Content-Type: multipart/form-data" \
-  	   -F "question=Download and unzip file abcd.zip which has a single extract.csv file inside. What is the value in the \"answer\" column of the CSV file?" \  
+You can use the following cURL commands to send a request to the API.
+
+### 1) **PowerShell**
+
+      curl.exe -X POST "https://tds-project-2-six.vercel.app/api/" -H "Content-Type:multipart/form-data" -F "question=Download and unzip file abcd.zip which has a        single extract.csv file inside. What is the value in the ""answer"" column of the CSV file?" -F file=@first.txt
+
+### 2) GitBash
+
+      curl -X POST "https://tds-project-2-six.vercel.app/api/"\
+  	   -H "Content-Type: multipart/form-data"\
+  	   -F "question=Download and unzip file abcd.zip which has a single extract.csv file inside. What is the value in the \"answer\" column of the CSV file?"\    
   	   -F file=@first.txt
+
+## Note:
+Replace first.txt in the above commands with the location of the file you want to process. For example:
+If your file is located at C:/path/to/your/file.txt, the command should be updated as:
+
+      curl.exe -X POST "https://tds-project-2-six.vercel.app/api/" -H "Content-Type:multipart/form-data" -F "question=Download and unzip file abcd.zip which has a        single extract.csv file inside. What is the value in the ""answer"" column of the CSV file?" -F file=@C:/path/to/your/file.txt
+
