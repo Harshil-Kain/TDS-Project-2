@@ -31,7 +31,6 @@ def health_check():
     return {"status": "ok"}
 
 def process_uploaded_file(file: UploadFile):
-    """Handles various file types and extracts content."""
     try:
         file_extension = file.filename.split('.')[-1].lower()
 
@@ -51,7 +50,6 @@ def process_uploaded_file(file: UploadFile):
         raise HTTPException(status_code=400, detail=str(e))
 
 def process_extracted_file(file, filename):
-    """Processes TXT, CSV, JSON, and XLSX files."""
     ext = filename.split('.')[-1].lower()
 
     if ext == "txt":
@@ -76,27 +74,23 @@ async def process_question(
     question: str = Form(None), file: UploadFile = File(None)
 ):
     try:
-        # If file is uploaded, extract its content and treat it as a question
         if file:
             extracted_content = process_uploaded_file(file)
-            if isinstance(extracted_content, str):  # If it's text, use it as question
+            if isinstance(extracted_content, str):  
                 question = extracted_content
             else:
                 raise HTTPException(status_code=400, detail="Uploaded file does not contain valid text.")
 
-        # Ensure a valid question is available
         if not question:
             raise HTTPException(status_code=400, detail="No valid question provided.")
 
-        # Send request to OpenAI API Proxy
         response = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[{"role": "user", "content": question}]
         )
 
-        # Extract the final answer only (removing explanations)
         answer = response.choices[0].message.content.strip()
-        answer = answer.split("\n")[-1].strip()  # Take the last line, assuming final answer is at the end
+        answer = answer.split("\n")[-1].strip()  
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"OpenAI API Error: {str(e)}")
