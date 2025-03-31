@@ -23,7 +23,7 @@ You can use the following cURL commands to send a request to the API.
 
 ### 1) **PowerShell**
 
-      curl.exe -X POST "https://tds-project-2-six.vercel.app/api/" -H "Content-Type:multipart/form-data" -F "question=Download and unzip file abcd.zip which has a        single extract.csv file inside. What is the value in the ""answer"" column of the CSV file?" -F file=@first.txt
+      curl.exe -X POST "https://tds-project-2-six.vercel.app/api/" -H "Content-Type:multipart/form-data" -F "question=Download and unzip file abcd.zip which has a single extract.csv file inside. What is the value in the ""answer"" column of the CSV file?" -F file=@first.txt
 
 ### 2) GitBash
 
@@ -36,5 +36,5 @@ You can use the following cURL commands to send a request to the API.
 Replace first.txt in the above commands with the location of the file you want to process. For example:
 If your file is located at C:/path/to/your/file.txt, the command should be updated as:
 
-      curl.exe -X POST "https://tds-project-2-six.vercel.app/api/" -H "Content-Type:multipart/form-data" -F "question=Download and unzip file abcd.zip which has a        single extract.csv file inside. What is the value in the ""answer"" column of the CSV file?" -F file=@C:/path/to/your/file.txt
+      curl.exe -X POST "https://tds-project-2-six.vercel.app/api/" -H "Content-Type:multipart/form-data" -F "question=Download and unzip file abcd.zip which has a single extract.csv file inside. What is the value in the ""answer"" column of the CSV file?" -F file=@C:/path/to/your/file.txt
 
